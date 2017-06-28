@@ -1,5 +1,5 @@
 {
-  "activityId": "05af4ec0g6e0j5iagc",
+  "activityId": "5ga5bghb5lgd2d5jc",
   "user": {
     "id": "default-user",
     "name": "User"
@@ -9,8 +9,8 @@
     "name": "Bot"
   },
   "conversation": {
-    "id": "kb3fkdi156n52f67l"
+    "id": "e5c2d08mm7347d17c"
   },
   "channelId": "emulator",
-  "serviceUrl": "http://127.0.0.1:52791"
+  "serviceUrl": "http://127.0.0.1:58387"
 }

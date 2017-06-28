@@ -23,7 +23,7 @@ namespace LuisDemo.Dialogs
     {
         // Each intent in LUIS is mapped to a method on the Dialog using Attributes
         [LuisIntent("Pay Mortgage")]
-        public async Task IntentSetTemperature(IDialogContext context, LuisResult result)
+        public async Task IntentPayMortgage(IDialogContext context, LuisResult result)
         {
             // LuisDialog passes in a LuisResult which contains
             // - The possible Intents and their confidence
@@ -36,9 +36,16 @@ namespace LuisDemo.Dialogs
         }
 
         [LuisIntent("Get Account Information")]
-        public async Task IntentOpenGarageDoor(IDialogContext context, LuisResult result)
+        public async Task IntentGetAccountInformation(IDialogContext context, LuisResult result)
         {
             await context.PostAsync($"Here is your account information");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("Obtain New Mortgage")]
+        public async Task IntentObtainNewMortgage(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync($"I can help you get information about obtaining a new mortgage.");
             context.Wait(MessageReceived);
         }
 
@@ -50,7 +57,7 @@ namespace LuisDemo.Dialogs
             //var activity = await result as Activity;
 
             //await context.PostAsync("Sorry, I don't know what you mean 😕");
-            await context.PostAsync("I don't know how to automatically deal with your query - so I've passed it on to a 👨🏽 who will get back to you!");
+            await context.PostAsync("I'm sorry, but I am not able to handle your request.  I will transfer you to a customer service representive 👨🏽 , but first I need to get some information from you.  What is your Customer ID!");
             context.Wait(MessageReceived);
             
         }
