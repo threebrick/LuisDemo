@@ -30,9 +30,14 @@ namespace LuisDemo.Dialogs
             // - Entities recognised by LUIS categorised by type
             // - The original query (the users message)
 
+                var message = context.MakeMessage();
+                message.Speak = "Thanks, I can help you pay off your mortgage.";
+            //    message.InputHint = InputHints.AcceptingInput;
+            //   await context.PostAsync($"Thanks, I can help you pay off your mortgage.");
+            //   context.Wait(MessageReceived);
+            await context.PostAsync(message);
 
-            await context.PostAsync($"Thanks, I can help you pay off your mortgage.");
-            context.Wait(MessageReceived);
+            context.Done<object>(null);
         }
 
         [LuisIntent("Get Account Information")]
